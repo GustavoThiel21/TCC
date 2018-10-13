@@ -12,7 +12,7 @@ $telefone =$_POST["telefone"];
 $consulta = mysql_query("select * from usuario where login = '$usuario'");
 $linha = mysql_num_rows($consulta);
 if ($linha != 0) {
-    echo "<script>alert('Usuario já cadastrado!');</script>";
+    echo "<script>alert('Usuário já cadastrado!');</script>";
     echo "<script>window.location='basic-form-elements.php'</script>";
 } else {
 $sql = "insert into usuario(login,senha,nome,email,telefone) values(
@@ -22,7 +22,10 @@ if (mysql_query($sql)) {
     } else {
         echo "<script>alert('Erro ao efetuar cadastro');</script>";
     }
-   echo "<script>window.location='basic-form-elements.php'</script>";
- 
+    session_start();	
+    $_SESSION['usuario']= $usuario;
+     
+   echo "<script>window.location='index.php'</script>";
 }
+
 ?>

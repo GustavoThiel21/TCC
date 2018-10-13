@@ -10,35 +10,35 @@ session_start();
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Basic Form Elements | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="../../plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <!-- Wait Me Css -->
-    <link href="../../plugins/waitme/waitMe.css" rel="stylesheet" />
+    <link href="plugins/waitme/waitMe.css" rel="stylesheet" />
 
     <!-- Bootstrap Select Css -->
-    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -79,7 +79,7 @@ session_start();
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.php">Localiza JÁ</a>
+                <a class="navbar-brand" href="index.php">Localiza JÁ</a>
             </div>
         </div>
     </nav>
@@ -101,7 +101,7 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nome ?></div>
@@ -112,7 +112,7 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
                             <li><a href="basic-form-elements.php"><i class="material-icons">person</i>Perfil</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../../pages/examples/sign-in.php"><i class="material-icons">input</i>Log out</a></li>
+                            <li><a href="sign-in.php"><i class="material-icons">input</i>Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
             <div class="menu">
                 <ul class="list">
                     <li class="active">
-                        <a href="../../index.php">
+                        <a href="index.php">
                             <i class="material-icons">home</i>
                             <span>Início</span>
                         </a>
@@ -156,8 +156,8 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
                         <form action="atualizarusuario.php" id="sign_up" method="POST">
                         <div class="input-group">
                                 <div class="form-line">
-                                    <h2 class="card-inside-title">Código</h2>
-                                    <input type="tex" class="form-control" name="codigo1" value=<?php echo $idusuario ?> disabled>
+                                    <h1 class="card-inside-title">Código</h1>
+                                    <input type="text" class="form-control" name="codigo1" value=<?php echo $idusuario ?> disabled>
                                     <input TYPE="hidden" name="codigo" value="<?php echo $idusuario?>">						                
                                 </div>
                             </div>
@@ -200,35 +200,35 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="../../plugins/node-waves/waves.js"></script>
+    <script src="plugins/node-waves/waves.js"></script>
 
     <!-- Autosize Plugin Js -->
-    <script src="../../plugins/autosize/autosize.js"></script>
+    <script src="plugins/autosize/autosize.js"></script>
 
     <!-- Moment Plugin Js -->
-    <script src="../../plugins/momentjs/moment.js"></script>
+    <script src="plugins/momentjs/moment.js"></script>
 
     <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="../../plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script src="plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
     <!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/basic-form-elements.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/pages/forms/basic-form-elements.js"></script>
 
     <!-- Demo Js -->
-    <script src="../../js/demo.js"></script>
+    <script src="js/demo.js"></script>
 </body>
 
 </html>

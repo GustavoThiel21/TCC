@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();	
+?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -33,7 +37,18 @@
 </head>
 
 <body class="theme-red">
-    <!-- Page Loader -->
+<?php
+
+include "pages/examples/conecta.php";
+$usuario=$_SESSION['usuario'];
+$sql = "SELECT nome,email FROM usuario WHERE login='$usuario'";
+
+echo $sql;
+      $editar = mysql_query($sql);
+      list($nome,$email) = mysql_fetch_row($editar);  
+?>
+
+<!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -75,15 +90,15 @@
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nome ?></div>
+                <div class="email"><?php echo $email ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="pages/examples/basic-form-elements.html"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="pages/examples/basic-form-elements.php"><i class="material-icons">person</i>Perfil</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="pages/examples/sign-in.html"><i class="material-icons">input</i>Log out</a></li>
+                            <li><a href="pages/examples/sign-in.php"><i class="material-icons">input</i>Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -93,7 +108,7 @@
             <div class="menu">
                 <ul class="list">
                     <li class="active">
-                        <a href="index.html">
+                        <a href="index.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -117,45 +132,45 @@
 
     <section class="content">
         <div class="container-fluid">
-            <a href="pages/maps/google.html">
+            <a href="pages/examples/google.php">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
         </div>
-            <div class="container-fluid">
-                <!-- Basic Example -->
-                <div class="row clearfix">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>
-                                    BASIC EXAMPLE
-                                </h2>
-                                
-                            </div>
-                            <div class="body">
-                                <div id="gmap_basic_example" class="gmap"></div>
-                            </div>
+        <div class="container-fluid">
+            <!-- Basic Example -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                BASIC EXAMPLE
+                            </h2>
+                            
                         </div>
-                    </div>
-                </div>
-                <!-- #END# Basic Example -->
-                <!-- Markers -->
-                <div class="row clearfix">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>
-                                    MARKERS
-                                </h2>
-                            </div>
-                            <div class="body">
-                                <div id="gmap_markers" class="gmap"></div>
-                            </div>
+                        <div class="body">
+                            <div id="gmap_basic_example" class="gmap"></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Basic Example -->
+            <!-- Markers -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                MARKERS
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div id="gmap_markers" class="gmap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Jquery Core Js -->
