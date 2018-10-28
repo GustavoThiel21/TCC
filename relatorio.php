@@ -1,7 +1,6 @@
 ﻿<?php
 session_start();	
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -9,6 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Aplicação TCC</title>
+
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -39,26 +39,20 @@ session_start();
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+    <script>
+             function Mudarestado(el) {
+                var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+        else
+            document.getElementById(el).style.display = 'none';
+            }
+    </script>
+
 </head>
 
 <body class="theme-red">
-   <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Espere um pouco...</p>
-        </div>
-    </div>
-    <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
@@ -88,11 +82,13 @@ session_start();
 
 include "conecta.php";
 $usuario=$_SESSION['usuario'];
-$sql = "SELECT * FROM usuario WHERE login='$usuario'";
+$sql = "SELECT nome,email FROM usuario WHERE login='$usuario'";
 
-      $editar = mysql_query($sql);
-      list($idusuario,$login,$senha,$nome,$email,$telefone) = mysql_fetch_row($editar);  
-  ?>
+echo $_SESSION['usuario'];
+
+$editar = mysql_query($sql);
+      list($nome,$email) = mysql_fetch_row($editar);  
+?>
 
     <!-- #Top Bar -->
     <section>
@@ -104,8 +100,8 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nome ?></div>
-                    <div class="email"><?php echo $email ?></div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nome ?></div>
+                <div class="email"><?php echo $email ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -126,8 +122,19 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
                             <i class="material-icons">home</i>
                             <span>Início</span>
                         </a>
-                    </li>
+                    </li>                    
                 </ul>
+                <ul class="list">
+                    <li class="active">
+                        <a href="relatorio.php">
+                            <i class="material-icons">search</i>
+                            <span>Relatório movimentos</span>
+                        </a>
+                    </li>                    
+                </ul>
+                <input type="date" class="form" style="height: 35px" placeholder="Dia desejado" name="search"> 
+                        <button type="submit" style="width: 35px; height: 35px" onclick="Mudarestado('teste')"><i class="material-icons">search</i></button>
+                      
             </div>
             <!-- #Menu -->
             <!-- Footer -->
@@ -141,61 +148,23 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
             </div>
             <!-- #Footer -->
         </aside>
-
-    </section>
+        
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>Perfil do usuário</h2>
-            </div>
-            <!-- Input -->
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <div class="card">
-                    <div class="body">
-                        <form action="atualizarusuario.php" id="sign_up" method="POST">
-                        <div class="input-group">
-                                <div class="form-line">
-                                    <h1 class="card-inside-title">Código</h1>
-                                    <input type="text" class="form-control" name="codigo1" value=<?php echo $idusuario ?> disabled>
-                                    <input TYPE="hidden" name="codigo" value="<?php echo $idusuario?>">						                
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <h2 class="card-inside-title">Nome</h2>
-                                    <input type="text" class="form-control" name="nome" value=<?php echo $nome ?> required>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <h2 class="card-inside-title">Nº telefone coleira</h2>
-                                    <input type="text" class="form-control" name="telefone" value=<?php echo $telefone ?> required>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <h2 class="card-inside-title">Email</h2>
-                                    <input type="email" class="form-control" name="email" value=<?php echo $email ?> required>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <h2 class="card-inside-title">Usuário</h2>
-                                    <input type="text" class="form-control" name="usuario" value=<?php echo $login ?> required>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <h2 class="card-inside-title">Senha</h2>
-                                    <input type="password" class="form-control" name="senha" value=<?php echo $senha ?> required>
-                                </div>
-                            </div>
-                            <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Salvar</button>
-                        </form>
+            <!-- Basic Example -->
+            <!-- Markers -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                      <div class="body">
+                            <div id="gmap_markers" class="gmap"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Markers -->
+            
         </div>
     </section>
 
@@ -204,6 +173,12 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
 
     <!-- Bootstrap Core Js -->
     <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Google Maps API Js -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAgk7MxorTEmATR3tRHq3irI_G2PdkgRF4"></script>
+
+    <!-- GMaps PLugin Js -->
+    <script src="plugins/gmaps/gmaps.js"></script>
 
     <!-- Select Plugin Js -->
     <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
@@ -214,18 +189,9 @@ $sql = "SELECT * FROM usuario WHERE login='$usuario'";
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
-    <!-- Autosize Plugin Js -->
-    <script src="plugins/autosize/autosize.js"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="plugins/momentjs/moment.js"></script>
-
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-
     <!-- Custom Js -->
+    <script src="js/pages/maps/google.js"></script>
     <script src="js/admin.js"></script>
-    <script src="js/pages/forms/basic-form-elements.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>

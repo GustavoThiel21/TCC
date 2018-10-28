@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Google Maps | Bootstrap Based Admin Template - Material Design</title>
+    <title>Aplicação TCC</title>
 
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -110,6 +110,14 @@ $editar = mysql_query($sql);
                         <a href="index.php">
                             <i class="material-icons">home</i>
                             <span>Início</span>
+                        </a>
+                    </li>                    
+                </ul>
+                <ul class="list">
+                    <li class="active">
+                        <a href="relatorio.php">
+                            <i class="material-icons">search</i>
+                            <span>Relatório movimentos</span>
                         </a>
                     </li>                    
                 </ul>
