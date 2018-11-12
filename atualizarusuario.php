@@ -18,13 +18,13 @@ if ($update != ''){
     $_SESSION['usuario']= $usuario;   
 
 echo "<script>alert('Usuario Atualizado com Sucesso');</script>";
-echo "<script>window.location ='basic-form-elements.php';</script>"; 
+echo "<script>window.location ='perfil.php';</script>"; 
          
             }					
 else{
 				
 echo "<script>alert('Erro ao atualizar os dados');</script>";	
-echo "<script>window.location ='basic-form-elements.php';</script>";
+echo "<script>window.location ='perfil.php';</script>";
             		
 				}
 

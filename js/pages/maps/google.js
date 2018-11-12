@@ -8,9 +8,10 @@ $(function () {
 
     //Markers
     var markers = new GMaps({
-        div: '#gmap_markers',
+        div: '#gmap_markers1',
         lat: -26.921762,
-        lng: -53.003835
+        lng: -53.003835,
+        zoom: 17
     });
     markers.addMarker({
         lat: -26.921762,
@@ -21,15 +22,5 @@ $(function () {
             author: 'HPNeo'
         },
     });
-    sleep(1);
-
-    markers.addMarker({
-        lat: -26.921762,
-        lng: -53.003835,
-        title: 'Marker with InfoWindow',
-        infoWindow: {
-            content: '<p>HTML Content</p>'
-        }
-    });
-
+    
 });

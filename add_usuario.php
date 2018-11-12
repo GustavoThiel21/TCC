@@ -13,7 +13,7 @@ $consulta = mysql_query("select * from usuario where login = '$usuario'");
 $linha = mysql_num_rows($consulta);
 if ($linha != 0) {
     echo "<script>alert('Usuário já cadastrado!');</script>";
-    echo "<script>window.location='basic-form-elements.php'</script>";
+    echo "<script>window.location='cadastrar.php'</script>";
 } else {
 $sql = "insert into usuario(login,senha,nome,email,telefone) values(
 '$usuario', '$senha', '$nome','$email','$telefone')";

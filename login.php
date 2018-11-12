@@ -25,15 +25,15 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="signup-page">
-    <div class="signup-box">
+<body class="login-page">
+    <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);">Localiza<b>JÁ</b></a>
         </div>
         <div class="card">
             <div class="body">
-                <form action="add_usuario.php" id="sign_up" method="POST">
-                    <div class="msg">Registre uma nova conta</div>
+                <form id="sign_in" method="POST" action="autenticar.php">
+                    <div class="msg">Entre para iniciar sua sessão</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
@@ -50,35 +50,15 @@
                             <input type="password" class="form-control" name="senha" placeholder="Senha" required>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">person</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <button class="btn btn-block bg-red orange waves-effect" type="submit">Entrar</button>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">email</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    <div class="row m-t-15 m-b--20">
+                        <div class="col-xs-6">
+                            <a href="cadastrar.php">Regristre-se</a>
                         </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">phone</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="telefone" placeholder="Nº telefone coleira" required>
-                        </div>
-                    </div>                    
-                    
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Registrar</button>
-
-                    <div class="m-t-25 m-b--5 align-center">
-                        <a href="sign-in.html">Você já possui conta?</a>
                     </div>
                 </form>
             </div>
@@ -99,7 +79,7 @@
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
-    <script src="js/pages/examples/sign-up.js"></script>
+    <script src="js/pages/examples/sign-in.js"></script>
 </body>
 
 </html>

@@ -105,10 +105,10 @@ $editar = mysql_query($sql);
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="basic-form-elements.php"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="perfil.php"><i class="material-icons">person</i>Perfil</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="sign-in.php"><i class="material-icons">input</i>Log out</a></li>
+                            <li><a href="login.php"><i class="material-icons">input</i>Sair</a></li>
                         </ul>
                     </div>
                 </div>
@@ -119,22 +119,23 @@ $editar = mysql_query($sql);
                 <ul class="list">
                     <li class="active">
                         <a href="index.php">
-                            <i class="material-icons">home</i>
-                            <span>Início</span>
+                            <i class="material-icons">gps_fixed</i>
+                            <span>Movimentação em tempo real</span>
                         </a>
                     </li>                    
-                </ul>
-                <ul class="list">
                     <li class="active">
-                        <a href="relatorio.php">
-                            <i class="material-icons">search</i>
-                            <span>Relatório movimentos</span>
+                        <a href="movimentacao.php">
+                            <i class="material-icons">gps_not_fixed</i>
+                            <span>Movimentação no dia</span>
                         </a>
                     </li>                    
+                    <li class="active">
+                    <a href="simulacao.php">
+                        <i class="material-icons">gps_fixed</i>
+                        <span>Simulação</span>
+                    </a>
+                </li>                   
                 </ul>
-                <input type="date" class="form" style="height: 35px" placeholder="Dia desejado" name="search"> 
-                        <button type="submit" style="width: 35px; height: 35px" onclick="Mudarestado('teste')"><i class="material-icons">search</i></button>
-                      
             </div>
             <!-- #Menu -->
             <!-- Footer -->
@@ -157,9 +158,14 @@ $editar = mysql_query($sql);
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                      <div class="body">
-                            <div id="gmap_markers" class="gmap"></div>
+                      <div class="header">
+                            <h2>
+                                Posicionamentos durante o dia atual
+                            </h2>
                         </div>
+                      <div class="body">
+                      <div id="gmap_static_map_polyline" class="gmap"></div>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -190,7 +196,7 @@ $editar = mysql_query($sql);
     <script src="plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
-    <script src="js/pages/maps/google.js"></script>
+    <script src="js/pages/maps/relatorio.js"></script>
     <script src="js/admin.js"></script>
 
     <!-- Demo Js -->
